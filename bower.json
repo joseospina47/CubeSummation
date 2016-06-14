@@ -1,0 +1,27 @@
+{
+  "name"            : "CubeSummation",
+  "version"         : "1.0.0",
+  "description"     : "hackerrank.com Cube Summation problem",
+  "main"            : "index.html",
+  "moduleType"      : [
+    "node"
+  ],
+  "keywords"        : [
+    "UDT",
+    "UDT Assets Tool"
+  ],
+  "authors"         : [
+    "Jose Ospina"
+  ],
+  "private"         : true,
+  "ignore"          : [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "devDependencies" : {
+    "bootstrap" : ">=3.3.6",
+    "jquery"    : ">=1.12.3",
+    "requirejs" : ">=2.2.0"
+  }
+}
