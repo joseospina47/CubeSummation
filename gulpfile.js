@@ -14,7 +14,7 @@ var gulp          = require('gulp'),
 gulp.task('connect', function(){
   connect.server({
     root: ['dist'],
-    port: 8002,
+    port: 8000,
     base: 'http://localhost',
     livereload: true
   });
@@ -100,15 +100,15 @@ gulp.task('watch', ['lint'], function() {
     'lint'
   ]);
 
-  gulp.watch(['styles/**/*.scss'], [
+  gulp.watch(['app/styles/**/*.scss'], [
     'styles'
   ]);
 
-  gulp.watch(['index.jade'], [
+  gulp.watch(['app/index.jade'], [
     'templates'
   ]);
 
-  gulp.watch(['scripts/*.js', 'scripts/**/*.js'], [
+  gulp.watch(['app/scripts/*.js', 'app/scripts/**/*.js'], [
     'scripts'
   ]);
 });

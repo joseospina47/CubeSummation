@@ -1,0 +1,30 @@
+.cs-content{
+  background-color:$content-background;
+  padding: 40px 0 40px 0;
+  margin:20px 0 0 0;
+
+  .container{
+    padding: 40px 20px 40px 20px;
+    background-color: #FFF;
+
+    h3{
+      color:$color-title;
+    }
+
+    pre{
+      margin-top:10px;
+    }
+
+    span{
+      color: $color-content;
+    }
+
+    textarea{
+      height:200px;
+    }
+
+    .cs-result{
+      display:none;
+    }
+  }
+}

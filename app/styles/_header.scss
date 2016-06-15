@@ -1,0 +1,21 @@
+.cs-header{
+  border-top: 1px solid #ff4351;
+
+  img{
+    margin: 4px 0 0 0;
+  }
+}
+
+.cs-title{
+  height: 143px;
+  color: $info-background;
+  background-image: url('../images/cube.png');
+  background-position: 85%;
+  background-repeat: no-repeat;
+  h1{
+    color:$color-title;
+  }
+  span{
+    color:$color-content;
+  }
+}
