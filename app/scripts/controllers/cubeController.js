@@ -13,6 +13,7 @@ app.controllers.CubeController = (function () {
     });
     $('.cs-code-result').empty();
     $('.cs-alert').empty();
+    $('.cs-result').hide();
     $('.cs-code-result').append(resultHtml);
     $('.cs-result').show();
   }
