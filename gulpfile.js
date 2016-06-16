@@ -24,8 +24,7 @@ gulp.task('connect', function(){
 gulp.task('vendorJS', function(){
   gulp.src([
     'bower_components/jquery/dist/jquery.min.js',
-    'bower_components/bootstrap/dist/js/bootstrap.min.js',
-    'bower_components/requirejs/require.js'
+    'bower_components/bootstrap/dist/js/bootstrap.min.js'
   ])
   .pipe(concat('vendor.js'))
   .pipe(gulp.dest('dist/vendor/js'));
@@ -82,9 +81,14 @@ gulp.task('templates', function() {
 
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
-    return gulp.src('app/scripts/**/*.js')
+    return gulp.src([
+          'app/scripts/app.js',
+          'app/scripts/models/*.js',
+          'app/scripts/controllers/*.js'
+        ])
+        .pipe(concat('bundle.js'))
         .pipe(gulp.dest('dist/js'))
-        .pipe(rename('*.min.js'))
+        .pipe(rename('bundle.min.js'))
         .pipe(uglify().on('error', gulpUtil.log))
         .pipe(gulp.dest('dist/js'))
         .pipe(connect.reload());
