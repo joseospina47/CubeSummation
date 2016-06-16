@@ -100,3 +100,21 @@ QUnit.test('UPDATE 1 1 1 23', function(assert){
      'Throws an exception when the input is 2 words'
    );
  });
+
+ QUnit.test('input = UPDATE X Y Z W', function(assert){
+   assert.throws(
+     function(){
+       cubeModel.readInput('UPDATE X Y Z W');
+     },
+     'Throws an exception when the input is UPDATE X Y Z W'
+   );
+ });
+
+ QUnit.test('input = QUERY x1 y1 z1 x2 y2 z2', function(assert){
+   assert.throws(
+     function(){
+       cubeModel.readInput('QUERY x1 y1 z1 x2 y2 z2');
+     },
+     'Throws an exception when the input is QUERY x1 y1 z1 x2 y2 z2'
+   );
+ });
