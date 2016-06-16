@@ -1,5 +1,4 @@
-var cubeModel     = app.models.CubeModel,
-    errorMessage  = 'Cannot read the submitted information';
+var cubeModel     = app.models.CubeModel;
 
 /**
  * Query and Update tests
