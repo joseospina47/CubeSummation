@@ -8,7 +8,8 @@ var gulp          = require('gulp'),
     uglify        = require('gulp-uglify'),
     connect       = require('gulp-connect'),
     rename        = require('gulp-rename'),
-    minifyCss     = require('gulp-minify-css');
+    minifyCss     = require('gulp-minify-css'),
+    qunit         = require('node-qunit-phantomjs');
 
 //Server task
 gulp.task('connect', function(){
@@ -94,9 +95,13 @@ gulp.task('scripts', function() {
         .pipe(connect.reload());
 });
 
+gulp.task('qunit', function() {
+    qunit('./test/cubeOperations.html');
+});
+
 // Dev task
 gulp.task('dev', ['connect', 'vendorJS', 'vendorCSS', 'images',
-  'lint', 'styles', 'templates', 'scripts'], function() { });
+  'lint', 'styles', 'templates', 'scripts', 'qunit'], function() { });
 
 
 gulp.task('watch', ['lint'], function() {

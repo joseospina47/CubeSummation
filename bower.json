@@ -21,6 +21,7 @@
   ],
   "devDependencies" : {
     "bootstrap" : ">=3.3.6",
-    "jquery"    : ">=1.12.3"
+    "jquery"    : ">=1.12.3",
+    "qunit"     : ">=2.0.0-rc1"
   }
 }

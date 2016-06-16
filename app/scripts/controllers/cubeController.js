@@ -16,7 +16,7 @@ app.controllers.CubeController = (function () {
     $('.cs-result').hide();
     $('.cs-code-result').append(resultHtml);
     $('.cs-result').show();
-  }
+  };
 
   /**
    * Displays the error messages.
