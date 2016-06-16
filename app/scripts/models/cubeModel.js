@@ -1,49 +1,6 @@
-var cubeModel = (function () {
+app.models.CubeModel = (function () {
 
-  var cube    = {},
-      results = [];
-
-  /**
-   * Reads the submitted information, and decides
-   * the operation to excecute.
-   * @param  {String} operationsInput String with operations
-   * @return {Array}                  Array of results
-   */
-  var _readOperations = function(operationsInput){
-    var inputLines = input.split('\n'),
-    operation,
-    action,
-    values;
-
-    inputLines.forEach(function(item, index){
-      operation = item.split(' ');
-      if(operation.length > 2){
-          action    = operation.shift(),
-          values    = operation.join(' ');
-        _runOperation(action, values);
-      } else {
-        throw 'Cannot read the submitted information';
-      }
-    });
-    return results;
-  };
-
-  /**
-   * Chooses which function to call.
-   * @param  {String} action UPDATE or QUERY
-   * @param  {String} values Operation parameters
-   * @return {String}        Operation result
-   */
-  var _runOperation = function(action, values){
-    switch(action){
-      case 'UPDATE':
-        _update(values);
-        break;
-      case 'QUERY':
-        _query(values);
-        break;
-    }
-  };
+  var _cube    = {};
 
   /**
    * Updates the value of a specific coordinate.
@@ -67,7 +24,7 @@ var cubeModel = (function () {
 
       _cube[x][y][z] = w;
 
-      return 'Updated to ' + w;
+      return 'UPDATED (' + x + ',' + y + ',' + z + ') TO ' + w;
   };
 
   /**
@@ -101,10 +58,58 @@ var cubeModel = (function () {
               }
           }
       }
+
+      return sum;
+  };
+
+  /**
+   * Chooses which function to call.
+   * @param  {String} action UPDATE or QUERY
+   * @param  {String} values Operation parameters
+   * @return {String or Integer}  Operation result
+   */
+  var _runOperation = function(action, values){
+    var result;
+    switch(action){
+      case 'UPDATE':
+        result =  _update(values);
+        break;
+      case 'QUERY':
+        result = _query(values);
+        break;
+    }
+    return result;
+  };
+
+  /**
+   * Reads the submitted information, and decides
+   * the operation to excecute.
+   * @param  {String} operationsInput String with operations
+   * @return {Array}                  Array of results
+   */
+  var readInput = function(operationsInput){
+    var inputLines = operationsInput.split('\n'),
+    results        = [],
+    operation,
+    action,
+    values;
+
+    inputLines.forEach(function(item, index){
+      operation = item.split(' ');
+      if(operation.length > 2){
+          action    = operation.shift(),
+          values    = operation.join(' ');
+          result    = _runOperation(action, values);
+          results.push(result);
+      } else {
+        throw 'Cannot read the submitted information';
+      }
+    });
+    return results;
   };
 
   return{
-    readOperations : _readOperations
+    readInput : readInput
   };
 
 }());
