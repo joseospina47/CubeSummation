@@ -1,11 +1,11 @@
 doctype html
-html(lang="eng", ng-app="UDTAssets")
+html(lang="eng")
 	head
 		meta(charset="utf-8")
 		meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
 		meta(name='HandheldFriendly', content='true')
 		meta(http-equiv="X-UA-Compatible", content="IE=edge")
-		base(href="/")
+		link(rel="icon", href="images/favicon.png",type="image/png")
 		title="Rappi - Cube Summation"
 
 		link(type='text/css', href='vendor/css/vendor.css', rel='stylesheet')
@@ -14,7 +14,8 @@ html(lang="eng", ng-app="UDTAssets")
 	body
 		//Header Section
 		div(class="col-md-12 cs-header text-center")
-			img(src="images/logo.png")
+			a(href="http://www.rappi.com", target="_blank")
+				img(src="images/logo.png")
 		div(class="col-md-12" )
 			div(class="col-md-12 cs-title")
 				div.container
@@ -47,7 +48,7 @@ html(lang="eng", ng-app="UDTAssets")
 				button(type="button", class="btn btn-default cs-button") Run
 				
 	script(type="text/javascript", src="vendor/js/vendor.js")
-	script(type="text/javascript", src="js/bundle.js")
+	script(type="text/javascript", src="js/bundle.min.js")
 				
 					
 				
