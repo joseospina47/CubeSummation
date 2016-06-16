@@ -34,7 +34,7 @@ app.models.CubeModel = (function () {
    * @return {Integer}       Operation Result
    */
   var _query = function(values){
-      var operationValues = values.split(' ');
+      var operationValues = values.split(' '),
           x1              = Number(operationValues[0]),
           y1              = Number(operationValues[1]),
           z1              = Number(operationValues[2]),
@@ -82,6 +82,35 @@ app.models.CubeModel = (function () {
   };
 
   /**
+   * Validates the input format
+   * @param  {Array} Operation Operation
+   * @return {boolean}         Validation result
+   */
+  var _validateOperation = function(operation){
+    var validationResult = false;
+    if(operation.length === 5 && operation[0] === 'UPDATE') {
+      if($.isNumeric(operation[1]) &&
+         $.isNumeric(operation[2]) &&
+         $.isNumeric(operation[3]) &&
+         $.isNumeric(operation[4])
+      ){
+        validationResult = true;
+      }
+    } else if(operation.length === 7 && operation[0] === 'QUERY'){
+      if($.isNumeric(operation[1]) &&
+         $.isNumeric(operation[2]) &&
+         $.isNumeric(operation[3]) &&
+         $.isNumeric(operation[4]) &&
+         $.isNumeric(operation[4]) &&
+         $.isNumeric(operation[4])
+      ){
+        validationResult = true;
+      }
+    }
+    return validationResult;
+  };
+
+  /**
    * Reads the submitted information, and decides
    * the operation to excecute.
    * @param  {String} operationsInput String with operations
@@ -92,13 +121,15 @@ app.models.CubeModel = (function () {
     results        = [],
     operation,
     action,
-    values;
+    values,
+    validation;
 
     inputLines.forEach(function(item, index){
-      operation = item.split(' ');
-      if(operation.length > 2){
+      operation   = item.split(' '),
+      validation  = _validateOperation(operation);
+      if(validation){
           action    = operation.shift(),
-          values    = operation.join(' ');
+          values    = operation.join(' '),
           result    = _runOperation(action, values);
           results.push(result);
       } else {

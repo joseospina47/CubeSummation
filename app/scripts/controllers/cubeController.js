@@ -1,6 +1,6 @@
 app.controllers.CubeController = (function () {
 
-  var cubeModel = app.models.CubeModel;
+  var _cubeModel = app.models.CubeModel;
 
   /**
    * Shows all the operations results
@@ -39,7 +39,7 @@ app.controllers.CubeController = (function () {
   var _excecuteOperations = function(){
     try{
       var operationsInput = $('.cs-input').val(),
-          results = cubeModel.readInput(operationsInput);
+          results = _cubeModel.readInput(operationsInput);
           _showResults(results);
     } catch (error) {
       _showErrorMessage(error);
