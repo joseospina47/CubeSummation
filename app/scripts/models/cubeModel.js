@@ -46,9 +46,9 @@ var cubeModel = (function () {
   };
 
   /**
-   * [function description]
-   * @param  {[type]} values [description]
-   * @return {[type]}        [description]
+   * Updates the value of a specific coordinate.
+   * @param  {String} values Operation Values
+   * @return {String}        Operation Result
    */
   var _update = function(values){
     var operationValues = values.split(' '),
@@ -71,9 +71,10 @@ var cubeModel = (function () {
   };
 
   /**
-   * [function description]
-   * @param  {[type]} values [description]
-   * @return {[type]}        [description]
+   * Calculates the sum of the value of the blocks
+   * given by the submitted coordinates.
+   * @param  {String} values Operation Values
+   * @return {Integer}       Operation Result
    */
   var _query = function(values){
       var operationValues = values.split(' ');
